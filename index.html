@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0A0C12" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#F5F8FF" media="(prefers-color-scheme: light)" />
+    <meta
+      name="description"
+      content="Helix — AI-native inference and deployment console. Streaming inference, token-level diffs, and global rollout control for production AI."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200;12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@300;400;500;600&display=swap"
+    />
+    <title>Helix · Swiss Inference Console</title>
+    <script>
+      // Resolve initial theme before React mounts so we don't get a flash.
+      // Reads persisted `hx-theme` ("light" | "dark" | "system") and writes
+      // the resolved attribute to <html data-theme>. The themeStore later
+      // reconciles this with the user's saved preference.
+      (function () {
+        try {
+          var raw = localStorage.getItem("hx-theme-store");
+          var mode = "dark";
+          if (raw) {
+            var parsed = JSON.parse(raw);
+            mode = parsed && parsed.state && parsed.state.mode
+              ? parsed.state.mode : "dark";
+          }
+          var resolved = mode;
+          if (mode === "system") {
+            resolved = window.matchMedia("(prefers-color-scheme: light)").matches
+              ? "light"
+              : "dark";
+          }
+          document.documentElement.setAttribute("data-theme", resolved);
+        } catch (_) {
+          document.documentElement.setAttribute("data-theme", "dark");
+        }
+      })();
+    </script>
+  </head>
+  <body class="font-sans antialiased">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

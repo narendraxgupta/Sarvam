@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Offline · Helix</title>
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background:
+          radial-gradient(1200px 700px at 80% -10%, rgba(91, 140, 255, 0.18), transparent 60%),
+          radial-gradient(900px 600px at -10% 110%, rgba(126, 87, 242, 0.18), transparent 60%),
+          #0a0e14;
+        color: #e6e9f2;
+        font-family: "Bricolage Grotesque", ui-sans-serif, system-ui, -apple-system, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      .frame {
+        min-height: 100%;
+        display: grid;
+        place-items: center;
+        padding: 32px;
+      }
+      .card {
+        max-width: 520px;
+        width: 100%;
+        padding: 28px;
+        border-radius: 20px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+        backdrop-filter: blur(20px) saturate(140%);
+      }
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #b9c0d4;
+        padding: 4px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.04);
+      }
+      .dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 999px;
+        background: #ffb454;
+        box-shadow: 0 0 12px rgba(255, 180, 84, 0.65);
+      }
+      h1 {
+        font-size: 28px;
+        line-height: 1.1;
+        margin: 16px 0 8px;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+      }
+      p {
+        color: #b9c0d4;
+        line-height: 1.55;
+        margin: 0 0 18px;
+      }
+      .row {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      button,
+      a {
+        appearance: none;
+        font: inherit;
+        cursor: pointer;
+        padding: 10px 14px;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.05);
+        color: #e6e9f2;
+        text-decoration: none;
+        transition: background 0.18s ease, transform 0.18s ease;
+      }
+      button.primary {
+        background: linear-gradient(180deg, #5b8cff, #4570f0);
+        border-color: rgba(255, 255, 255, 0.18);
+        box-shadow: 0 10px 24px rgba(91, 140, 255, 0.45);
+      }
+      button:hover {
+        transform: translateY(-1px);
+      }
+      .meta {
+        font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+        font-size: 12px;
+        color: #707794;
+        margin-top: 20px;
+        letter-spacing: 0.04em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="frame">
+      <div class="card">
+        <span class="badge"><span class="dot"></span> Offline</span>
+        <h1>You&rsquo;re flying blind for a moment.</h1>
+        <p>
+          Helix can&rsquo;t reach the network right now, but everything you&rsquo;ve saved &mdash;
+          prompts, diffs, deploys, and observations &mdash; is preserved locally. Reconnect and your
+          state will rehydrate seamlessly.
+        </p>
+        <div class="row">
+          <button class="primary" onclick="location.reload()">Retry connection</button>
+          <a href="/">Return home</a>
+        </div>
+        <div class="meta">helix · service-worker · cached shell</div>
+      </div>
+    </div>
+  </body>
+</html>
