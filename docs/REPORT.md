@@ -1,11 +1,11 @@
 # Helix — Helix AI Frontend Intern Assignment
 
-**Author:** Saumya Mishra
+**Author:** Narendra Gupta
 **Date:** May 16, 2026
 **Project:** Helix · AI-native inference and deployment console
-**Repository:** _(link inserted on submission)_
-**Deployment:** _(Vercel link inserted on submission)_
-**3-minute walkthrough:** _(YouTube/Loom link inserted on submission)_
+**Repository:** https://github.com/narendraxgupta/Sarvam
+**Deployment:** https://narendraxhelix.vercel.app/welcome
+**3-minute walkthrough:** https://youtu.be/vLA93HIjREU
 
 ---
 
